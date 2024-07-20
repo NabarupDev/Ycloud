@@ -1,0 +1,150 @@
+/* Reset some default styles */
+body, h1, h2, p, input, textarea, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center the h1 horizontally */
+    background-color: #007BFF;
+    color: #fff;
+    padding: 1rem;
+    box-sizing: border-box;
+    position: relative; /* Required for absolute positioning of the username display */
+}
+
+/* User info display */
+#username-display {
+    position: absolute; /* Absolute positioning to place it on the left */
+    left: 20px; /* Distance from the left side */
+    top: 50%; /* Center vertically within the header */
+    transform: translateY(-50%); /* Adjust for the height of the div */
+    font-size: 1rem; /* Font size for the username */
+    color: #fff; /* Text color to match header */
+}
+
+#username-text {
+    padding: 0.5rem 1rem; /* Padding around the text */
+    border-radius: 20px; /* Rounded corners for a more modern look */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+/* Main container styling */
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"], textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+/* Loader Styles */
+.loader-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Light white background with opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* Make sure it covers other elements */
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* Add this to your existing CSS file */
+
+/* Back to Home Button styling */
+#back-home-button {
+    position: absolute;
+    right: 20px; /* Distance from the right side */
+    top: 50%; /* Center vertically within the header */
+    transform: translateY(-50%); /* Adjust for the height of the button */
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #28a745; /* Green color */
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#back-home-button:hover {
+    background-color: #218838; /* Darker green for hover */
+}
+
+#back-home-button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Green focus ring */
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Sender</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/sms.css">
+    <link rel="stylesheet" href="css/offline.css">
+    <style>
+        canvas {
+            background: rgba(255, 255, 255, 0.5);
+            /* White transparent background */
+        }
+
+        .tooltip {
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border-radius: 3px;
+            padding: 5px;
+            position: absolute;
+            pointer-events: none;
+            transform: translate(-50%, -100%);
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="username" style="display: flex; align-items: start; justify-content: flex-start; position: absolute; left: 20px;">
+            <!-- User info will be here -->
+        </div>
+        <div id="credits" style="display: flex; align-items: start; justify-content: flex-end; position: absolute; right: 20px;">
+            <!-- User credits will be here -->
+        </div>
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#send-sms">Send SMS</a>
+            <a href="#history">History</a>
+            <a href="report.html" class="report-btn">Report Issue</a> <!-- New button -->
+        </nav>
+    </header>
+
+    <section id="dashboard">
+        <h2>Welcome, <span id="username-display"></span>!</h2>
+        <p>Check out your recent activity and statistics here.</p>
+        <div id="chartContainer">
+            <canvas id="smsStatusChart"></canvas>
+        </div>
+    </section>
+
+    <section id="send-sms">
+        <h2>Send SMS</h2>
+        <form id="sms-form" action="php/send.php" method="post" onsubmit="return validateAndSendSMS()">
+            <label for="sender-number">Sender's Phone Number</label>
+            <input type="tel" id="sender-number" name="sender_number" required>
+            <br><br>
+            <label for="recipient-numbers">Recipient Numbers (comma-separated)
+                <span class="tooltip" onmouseover="showTooltip()" onmouseout="hideTooltip()">
+                    <i class="fas fa-question-circle"></i>
+                    <span id="tooltipContent" class="tooltiptext">
+                        Number format will be: <br>
+                        <span style="color: black;">
+                            +91XXXXXXXXXX,+44XXXXXXXXXX,... etc
+                        </span>
+                    </span>
+                </span>
+            </label>
+            <input type="text" id="recipient-numbers" name="recipient_numbers" required oninput="formatNumbers()">
+            <br><br>
+            <label for="file-upload">Upload File with Numbers</label>
+            <input type="file" id="file-upload" accept=".txt" onchange="handleFileUpload(event)">
+            <br><br>
+            <label for="amount">Amount of SMS to send</label>
+            <input type="number" id="amount" name="amount" required readonly>
+            <br><br>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <br><br>
+            <button type="submit" id="sendBtn">Send SMS</button>
+        </form>
+    </section>
+
+    <section id="history">
+        <h2>SMS History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Recipient</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="history-table-body"></tbody>
+        </table>
+        <button id="viewAllBtn" onclick="redirectToAllSmsPage()">View All</button> <!-- Added button -->
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Bulk SMS Portal. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal for displaying full message -->
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="modalClose">&times;</span>
+            <p id="fullMessage"></p>
+        </div>
+    </div>
+
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
+
+    <div id="offlineOverlay" class="offline-overlay">
+        <h1>OFFLINE</h1>
+        <h4>Please check your internet connection</h4>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/bulk-sms.js"></script>
+</body>
+
+</html>

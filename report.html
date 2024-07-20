@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Report</title>
+    <link rel="stylesheet" href="css/report.css">
+    <link rel="stylesheet" href="css/offline.css">
+</head>
+<body>
+    <header>
+        <h1>Submit a Report</h1>
+        <div id="username-display">
+            <span id="username-text"></span>        
+        </div>
+        <button id="back-home-button">Back to Home</button> <!-- Back to Home button -->
+    </header>
+    
+
+    <main>
+        <section class="container">
+            <h2>Report a Problem</h2>
+            <form id="report-form">
+                <label for="report-title">Title:</label>
+                <input type="text" id="report-title" name="title" placeholder="Enter report title" required>
+                
+                <label for="report-details">Details:</label>
+                <textarea id="report-details" name="details" placeholder="Describe the problem in detail" rows="6" required></textarea>
+                
+                <button type="submit">Submit Report</button>
+            </form>
+        </section>
+    </main>
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>  
+    
+    <div id="offlineOverlay" class="offline-overlay">
+        <h1>OFFLINE</h1>
+        <h4>Please check your internet connection</h4>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    
+    <script src="js/report.js"></script>
+</body>
+</html>

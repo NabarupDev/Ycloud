@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User Details</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/details.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>User Details</h1>
+        <button class="back-button" onclick="goBack()">Back to Dashboard</button>
+    </header>
+    <div id="user-details-container">
+        <!-- User details will be displayed here -->
+    </div>
+
+    <section id="sms-status-chart">
+        <h2>SMS Status Chart</h2>
+        <div id="chartContainer">
+            <canvas id="smsStatusChart"></canvas>
+        </div>
+    </section>
+
+    <section id="history">
+        <h2>SMS History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Date & Time</th>
+                    <th>Recipient</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="history-table-body"></tbody>
+        </table>
+    </section>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/firebase-config.js"></script>
+<script src="js/details.js" defer></script>
+
+</html>

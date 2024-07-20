@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/offline.css">
+</head>
+<body>
+    <header>
+        <div id="user-info-container"
+            style="display: flex;align-items: start;justify-content: flex-start;position: absolute;left: 20px;">
+            <!-- User info will be here -->
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Sender</a></li>
+                <li><a href="#" id="pricingLink">Pricing</a></li>
+                <li><a href="#" id="telegramLink">Telegram</a></li>
+            </ul>
+        </nav>
+        <div id="user-credits-container" style="display: flex; align-items: start; justify-content: flex-end; position: absolute; right: 20px;">
+            <!-- User credits will be here -->
+        </div>
+
+        <div class="login">
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </header>
+    <main>
+        <h2>Want to send bulk sms?</h2>
+        <button id="sendBtn">Send now
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-2"
+                transform="rotate(-45)">
+                <path
+                    d="M1.20308 1.04312C1.00481 0.954998 0.772341 1.0048 0.627577 1.16641C0.482813 1.32802 0.458794 1.56455 0.568117 1.75196L3.92115 7.50002L0.568117 13.2481C0.458794 13.4355 0.482813 13.672 0.627577 13.8336C0.772341 13.9952 1.00481 14.045 1.20308 13.9569L14.7031 7.95693C14.8836 7.87668 15 7.69762 15 7.50002C15 7.30243 14.8836 7.12337 14.7031 7.04312L1.20308 1.04312ZM4.84553 7.10002L2.21234 2.586L13.2689 7.50002L2.21234 12.414L4.84552 7.90002H9C9.22092 7.90002 9.4 7.72094 9.4 7.50002C9.4 7.27911 9.22092 7.10002 9 7.10002H4.84553Z"
+                    fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </main>
+
+    <dialog id="pricingDialog">
+        <h3>Pricing Information</h3>
+        <table>
+            <tr>
+                <th>Country</th>
+                <th>Cost/SMS</th>
+            </tr>
+            <tr>
+                <td>United States</td>
+                <td>$0.022</td>
+            </tr>
+            <tr>
+                <td>United Kingdom</td>
+                <td>$0.048</td>
+            </tr>
+            <tr>
+                <td>India</td>
+                <td>$0.048</td>
+            </tr>
+            <tr>
+                <td>Australia</td>
+                <td>$0.070</td>
+            </tr>
+            <tr>
+                <td>Germany</td>
+                <td>$0.12</td>
+            </tr>
+            <tr>
+                <td>France</td>
+                <td>$0.094</td>
+            </tr>
+            <tr>
+                <td>Poland</td>
+                <td>$0.054</td>
+            </tr>
+            <tr>
+                <td>Singapore</td>
+                <td>$0.047</td>
+            </tr>
+        </table>
+        <button id="closeDialogBtn">Close</button>
+    </dialog>
+
+        
+    <!-- Low Credits Dialog -->
+    <dialog id="lowCreditsDialog">
+        <h3>Low Credits</h3>
+        <p>Your credits are very low. Please contact the admin to add more credits.</p>
+        <button id="contactAdminBtn" class="dialog-btn">Contact Admin</button>
+        <button id="closeLowCreditsDialogBtn" class="dialog-btn">Close</button>
+    </dialog>
+
+    <!-- Loader Container -->
+    <div class="loader-container" id="loaderContainer">
+        <div class="loader"></div>
+    </div>
+    <div id="offlineOverlay" class="offline-overlay">
+        <h1>OFFLINE</h1>
+        <h4>Please check your internet connection</h4>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="js/home.js"></script>
+    <!-- <script src="js/firebase-config.js"></script> -->
+</body>
+</html>

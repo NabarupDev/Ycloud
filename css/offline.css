@@ -1,0 +1,33 @@
+/* Offline page styles */
+.offline-overlay {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: -webkit-linear-gradient(-45deg, #183850 0, #183850 25%, #192C46 50%, #22254C 75%, #22254C 100%);
+    z-index: 9999;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+.offline-overlay h1 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    letter-spacing: 5px;
+    line-height: 1rem;
+    text-shadow: 0 0 3px white;
+    margin: 0;
+}
+.offline-overlay h4 {
+    font-family: Arial, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    margin-top: 20px;
+}
